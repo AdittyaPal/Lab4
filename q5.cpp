@@ -76,55 +76,55 @@ class Stack
         }
         cout<<".\n";
     }//end of display function
-    void displayRev()
+    void displayRev()//displays the stack in the reverse order
     {
-        displayRev(top);
-    }
-    void displayRev(Node* temp)
+        displayRev(top);//call to the parameterized function using the data member
+    }//end of the function to display the stack in the reverse order
+    void displayRev(Node* temp)//method to print the elements of the stack in the reverse order
     {
-        if(temp->next==NULL)
-        cout<<temp->data<<", ";
+        if(temp->next==NULL)//when the end of the stack is reached
+        cout<<temp->data<<", ";//the element is displayed
         else
         {
-            displayRev(temp->next);
-            cout<<temp->data<<", ";
+            displayRev(temp->next);//the next element in the stack is traversed
+            cout<<temp->data<<", ";//the nalue of the element in stack is printed
         }
-    }
+    }//end of function to print the elements of the stack inreverse order
     int topValue()//function to return the value at the top of the stack
     {
         if(isEmpty()==true)//if the stack is empty
         return -9999;
         else
         return top->data;//the first element is returned
-    }
+    }//end of function to return the topmost value in the stack
 };//end of class Stack
-class QueueFromStack
+class QueueFromStack//class to implement a queue using a stack
 {
     public:
-    Stack s1;
+    Stack s1;//stack object used to implement a queue
     public:
-    void enqueue(int num)
+    void enqueue(int num)//while enqueuing an element into the queue
     {
-	s1.push(num);
+	s1.push(num);//it is simply popped into the stack
     }
-    void dequeue()
+    void dequeue()//while dequeuing an element from the queue
     {
-	if(s1.size()==0)
+	if(s1.size()==0)//if the queue is empty then there is nothing to dequeue
         cout<<"Stack Underflow.\n";
-	else if(s1.size()==1)
+	else if(s1.size()==1)//else the last element is popped from the stack
 	cout<<s1.pop()<<" has been dequened.\n";
-        else
+        else//else
 	{
-	    int poppedValue=s1.pop();
-	    dequeue();
-            s1.push(poppedValue);
+	    int poppedValue=s1.pop();//each element is popped from the stack and stored
+	    dequeue();//the next element is dequeued
+            s1.push(poppedValue);//the stored element is later pushed back into the stack
 	}
     }
-    void display()
+    void display()//to display the queue
     {
-        s1.displayRev();
+        s1.displayRev();//the stack is displayed from bottom to top
     }
-};
+};//end of the class implementing a queue using a stack
 int main()
 {
     cout<<"Quene Object.";
