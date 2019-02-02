@@ -106,25 +106,25 @@ class Queue
         return end->data;
     }//end of the function to display the element at the end of the queue
 };//end of class Queue
-class StackFromQueue
+class StackFromQueue//class to implement a stack using a queue
 {
     public:
-    Queue q1;
-    void push(int num)
+    Queue q1;//queue object used to implement a stack
+    void push(int num)//while pushing an element into the stack
     {
-	q1.enqueue(num);
-	while(q1.frontValue()!=num)
-	q1.enqueue(q1.dequeue());
+	q1.enqueue(num);//it is enqueued at the end of the queue
+	while(q1.frontValue()!=num)//all other element in front of it 
+	q1.enqueue(q1.dequeue());//and dequeued and enqueued after it, bringing the inserted element to the top
     }
-    int pop()
+    int pop()//while popping an element from the stack
     {
-	return q1.dequeue();
+	return q1.dequeue();//it is dequeued from the front of the queue
     }
-    void display()
+    void display()//to display the stack
     {
-	q1.display();
+	q1.display();//the queue is displayed
     }
-};
+};//end of the class implementing a stack using a queue
 int main()
 {
     cout<<"Stack Object.";
